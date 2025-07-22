@@ -1,4 +1,9 @@
-"scripts": {
-  "start": "node index.js",
-  "build": "echo 'No build required'"
+{
+  "name": "my-static-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "build": "echo 'No build required'"
+  }
 }
