@@ -2,9 +2,201 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Hello Azure</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azure AI 利用ガイド</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+      transform: translateY(-20px);
+      animation: slideDown 1s ease-out forwards;
+    }
+    @keyframes slideDown {
+      to { transform: translateY(0); }
+    }
+    h1 {
+      font-size: 2.8rem;
+      color: #0078D4;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #444;
+    }
+    section {
+      max-width: 1000px;
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      transform: scale(0.95);
+      opacity: 0;
+      animation: popIn 1s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+    section:nth-of-type(2) { animation-delay: 1s; }
+    section:nth-of-type(3) { animation-delay: 1.5s; }
+    section:nth-of-type(4) { animation-delay: 2s; }
+    section:nth-of-type(5) { animation-delay: 2.5s; }
+    @keyframes popIn {
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    h2 {
+      color: #0078D4;
+      margin-bottom: 1rem;
+    }
+    ul, ol {
+      padding-left: 1.5rem;
+      line-height: 1.6;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    th {
+      background-color: #e3f2fd;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #0078D4;
+      color: white;
+      border: none;
+      border-radius: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #005A9E;
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello World from Azure!</h1>
+  <header>
+    <h1>Azureで始めるAI活用</h1>
+    <p>簡単・安全にAI機能を取り入れるためのはじめの一歩</p>
+  </header>
+
+  <section>
+    <h2>Azure AIのメリット</h2>
+    <ul>
+      <li>すぐに使えるAI API（画像分析、音声認識、翻訳など）</li>
+      <li>高度なセキュリティとスケーラビリティ</li>
+      <li>ノーコード・ローコードでも導入可能</li>
+      <li>クラウドだからインフラ不要</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>使い方の流れ（例：画像解析）</h2>
+    <ol>
+      <li>Azure ポータルで「Computer Vision」リソースを作成</li>
+      <li>キーとエンドポイントを取得</li>
+      <li>APIエンドポイントに画像データを送信</li>
+      <li>レスポンスから解析結果を取得</li>
+    </ol>
+    <button class="btn" onclick="alert('詳しいコード例はAzure公式ドキュメントを参照してください！')">詳しく見る</button>
+  </section>
+
+  <section>
+    <h2>主要クラウドAIサービス比較</h2>
+    <table>
+      <tr>
+        <th>項目</th>
+        <th>Microsoft Azure</th>
+        <th>AWS</th>
+        <th>Google Cloud</th>
+      </tr>
+      <tr>
+        <td>AIサービス名</td>
+        <td>Azure AI / Cognitive Services</td>
+        <td>SageMaker / Bedrock</td>
+        <td>Vertex AI</td>
+      </tr>
+      <tr>
+        <td>主な特徴</td>
+        <td>GUI中心・API充実・ノーコード対応</td>
+        <td>フルマネージド開発環境・MLモデル構築に強み</td>
+        <td>AI研究ベース・LLMとの統合が強力</td>
+      </tr>
+      <tr>
+        <td>LLM統合</td>
+        <td>OpenAI (ChatGPT, DALL·E)</td>
+        <td>Anthropic, Meta等と連携</td>
+        <td>Gemini / PaLM2</td>
+      </tr>
+      <tr>
+        <td>開発者向けツール</td>
+        <td>Azure Studio, Logic Apps</td>
+        <td>SageMaker Studio, Lambda</td>
+        <td>Vertex Pipelines, Colab</td>
+      </tr>
+      <tr>
+        <td>価格</td>
+        <td>従量課金＋一部無料枠</td>
+        <td>従量課金</td>
+        <td>従量課金</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Azure AIの活用が多い分野</h2>
+    <ul>
+      <li>製造業：設備故障の予測・画像分析による品質管理</li>
+      <li>小売業：需要予測・レコメンドシステム</li>
+      <li>医療：画像診断支援・自然言語処理によるカルテ解析</li>
+      <li>自治体・公共：チャットボット・文書分類</li>
+      <li>教育：学習支援AI・音声文字起こし</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Azure AIの強み</h2>
+    <ul>
+      <li>OpenAIとの公式パートナーシップによるChatGPT API提供</li>
+      <li>Microsoft製品（Office, Teams, Power Platform）と親和性が高い</li>
+      <li>視覚／音声／言語に特化したAIモデルが揃っている</li>
+      <li>世界中にデータセンターがありセキュリティ・ガバナンス面で信頼性が高い</li>
+      <li>ノーコードで始められるGUIとLogic Apps、Power Automate連携</li>
+    </ul>
+  </section>
+
+  <footer>
+    © 2025 Azure AI Guide Demo. Powered by HTML, CSS, JavaScript.
+  </footer>
 </body>
 </html>
